@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT-like Interface - Dark Mode</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="new-chat">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4V20M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>New chat</span>
+        </div>
+        
+        <div class="chat-history">
+            <div class="history-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>JavaScript Design Patterns</span>
+            </div>
+            <div class="history-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>React Hooks Explained</span>
+            </div>
+            <div class="history-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>CSS Animation Examples</span>
+            </div>
+        </div>
+        
+        <div class="user-section">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>User Profile</span>
+        </div>
+    </div>
+    
+    <!-- Main Chat Area -->
+    <div class="main">
+        <div class="chat-container">
+            <div class="message-row">
+                <div class="assistant-message">
+                    <div class="avatar assistant-avatar">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4" stroke="white" stroke-width="2"/>
+                            <path d="M21 3h-6m0 0v6m0-6l-9 9" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm your AI assistant. How can I help you today?</p>
+                    </div>
+                </div>
+                
+                <div class="user-message">
+                    <div class="avatar user-avatar">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Can you explain how to use async/await in JavaScript?</p>
+                    </div>
+                </div>
+                
+                <div class="assistant-message">
+                    <div class="avatar assistant-avatar">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4" stroke="white" stroke-width="2"/>
+                            <path d="M21 3h-6m0 0v6m0-6l-9 9" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="message-content">
+                        <p>Async/await is a way to handle asynchronous operations in JavaScript. It's built on top of Promises and makes asynchronous code look more like synchronous code, which can be easier to understand.</p>
+                        
+                        <p>Here's a basic example:</p>
+                        
+                        <div class="code-block">async function fetchData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+// Call the async function
+fetchData();</div>
+                        
+                        <p>In this example, the `async` keyword before the function declaration makes it return a Promise automatically. The `await` keyword can only be used inside async functions, and it pauses execution until the Promise resolves.</p>
+                    </div>
+                </div>
+                <div class="quick-options">
+                    <button onclick="selectOption('Explain promises in JavaScript')">Explain promises in JavaScript</button>
+                    <button onclick="selectOption('What is an API?')">What is an API?</button>
+                    <button onclick="selectOption('Tell me a programming joke')">Tell me a programming joke</button>
+                </div>
+            </div>
+        </div>
+        <div class="input-area">
+            <div class="input-container">
+                <textarea placeholder="Message ChatGPT..."></textarea>  
+                <button class="send-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="footer">
+                ChatGPT may produce inaccurate information about people, places, or facts.
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
